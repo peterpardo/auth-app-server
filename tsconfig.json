@@ -7,7 +7,7 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "esnext",
+    "module": "nodenext",
     "target": "esnext",
     "types": [],
     // For nodejs:
@@ -42,7 +42,10 @@
     "skipLibCheck": true,
 
     "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    // For fixing imports error
+    "moduleResolution": "nodenext",
+    "esModuleInterop": true
   },
   "include": ["src"]
 }
