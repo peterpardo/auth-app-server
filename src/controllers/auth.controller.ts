@@ -20,7 +20,7 @@ export const signup = (req: Request, res: Response) => {
     id: userIdCounter++,
     username,
     email,
-    password, // TODO: NEED TO HASH WITH BCRYPT
+    password: String(password), // TODO: NEED TO HASH WITH BCRYPT
   };
 
   users.push(newUser);
@@ -35,7 +35,9 @@ export const signup = (req: Request, res: Response) => {
 export const login = (req: Request, res: Response) => {
   const { email, password } = req.body;
 
-  const user = users.find((u) => u.email === email && u.password === password);
+  const user = users.find(
+    (u) => u.email === email && u.password === String(password)
+  );
 
   if (!user) {
     return res.status(401).json({ message: "Invalid email or password" });
